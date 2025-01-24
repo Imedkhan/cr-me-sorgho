@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Couscous Royal</title>
+    <title>Crème de Sorgho</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,24 +18,17 @@
         }
         header {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Arrange les éléments en colonne */
             justify-content: center;
-            align-items: center;
+            align-items: center; /* Centre les éléments horizontalement */
             background-color: #bdc9cc;
             color: Black;
             border-radius: 8px;
             padding: 10px;
-            text-align: center;
-            position: relative;
-        }
-        header .logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 100px;
+            text-align: center; /* Centre le texte */
         }
         header .flags {
-            margin-top: 10px;
+            margin-top: 10px; /* Ajoute un espace entre le titre et les drapeaux */
         }
         header h1 {
             margin: 0;
@@ -53,17 +46,17 @@
             transform: scale(1.5);
         }
         .dish-image {
-            display: block;
+            display: block;  /* Ensures the image is treated as a block element */
             width: 60%;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 0 auto;  /* This centers the image horizontally */
             border-radius: 20px;
             transition: transform 0.5s ease-in-out;
         }
         .dish-image:hover {
             transform: scale(1.01); rotate(5deg); /* Agrandissement et légère rotation */
             opacity: 0.5; /* Réduction légère de l'opacité */
-        
+
         }
         .logo {
             display: block;
@@ -76,18 +69,12 @@
 
         .logo:hover {
             transform: scale(1.1);
-
         }
         .overview, .calories, .components, .allergies, .history, .serving {
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .overview:hover {
-            transform: scale(1.01);
         }
         .overview {
             background-color: #f8f8f8;
@@ -126,80 +113,87 @@
     </style>
     <script>
         function switchLanguage(language) {
-            const translations = {
-                'fr': {
-                    title: 'Couscous Royal',
-                    overview: 'Présentation',
-                    calories: 'Calories',
-                    components: 'Composants principaux',
-                    allergies: 'Allergènes',
-                    history: 'Histoire',
-                    serving: 'Présentation'
-                },
-                'en': {
-                    title: 'Royal Couscous',
-                    overview: 'Overview',
-                    calories: 'Calories',
-                    components: 'Main Ingredients',
-                    allergies: 'Allergens',
-                    history: 'History',
-                    serving: 'Serving'
-                },
-                'es': {
-                    title: 'Cuscús Real',
-                    overview: 'Descripción',
-                    calories: 'Calorías',
-                    components: 'Ingredientes principales',
-                    allergies: 'Alergias',
-                    history: 'Historia',
-                    serving: 'Servicio'
-                },
-                'de': {
-                    title: 'Königlicher Couscous',
-                    overview: 'Überblick',
-                    calories: 'Kalorien',
-                    components: 'Hauptzutaten',
-                    allergies: 'Allergene',
-                    history: 'Geschichte',
-                    serving: 'Servieren'
-                },
-                'it': {
-                    title: 'Couscous Reale',
-                    overview: 'Panoramica',
-                    calories: 'Calorie',
-                    components: 'Ingredienti principali',
-                    allergies: 'Allergeni',
-                    history: 'Storia',
-                    serving: 'Servizio'
-                },
-                'pl': {
-                    title: 'Królewski Kus-kus',
-                    overview: 'Przegląd',
-                    calories: 'Kalorie',
-                    components: 'Główne składniki',
-                    allergies: 'Alergeny',
-                    history: 'Historia',
-                    serving: 'Serwowanie'
-                },
-                'ar': {
-                    title: 'كسكسي ملكي',
-                    overview: 'نظرة عامة',
-                    calories: 'السعرات الحرارية',
-                    components: 'المكونات الرئيسية',
-                    allergies: 'المواد المثيرة للحساسية',
-                    history: 'التاريخ',
-                    serving: 'طريقة التقديم'
-                }
+            const texts = {
+                'fr': 'Crème de Sorgho',
+                'en': 'Sorgho Cream',
+                'es': 'Crema de Sorgo',
+                'de': 'Sorgho-Creme',
+                'it': 'Crema di Sorgho',
+                'pl': 'Krem z Sorgo',
+                'ar': 'كريمة الدرع'
             };
 
-            const content = translations[language];
-            document.querySelector('header h1').textContent = content.title;
-            document.querySelector('.overview h2').textContent = content.overview;
-            document.querySelector('.calories h2').textContent = content.calories;
-            document.querySelector('.components h2').textContent = content.components;
-            document.querySelector('.allergies h2').textContent = content.allergies;
-            document.querySelector('.history h2').textContent = content.history;
-            document.querySelector('.serving h2').textContent = content.serving;
+            const overviews = {
+                'fr': 'La Crème de Sorgho est une délicieuse spécialité traditionnelle, douce et crémeuse, souvent dégustée lors des mois plus frais.',
+                'en': 'Sorgho Cream is a delicious traditional specialty, smooth and creamy, often enjoyed during the cooler months.',
+                'es': 'La Crema de Sorgo es una deliciosa especialidad tradicional, suave y cremosa, a menudo disfrutada durante los meses más frescos.',
+                'de': 'Sorgho-Creme ist eine köstliche traditionelle Spezialität, glatt und cremig, die oft in den kühleren Monaten genossen wird.',
+                'it': 'La Crema di Sorgho è una deliziosa specialità tradizionale, liscia e cremosa, spesso gustata durante i mesi più freschi.',
+                'pl': 'Krem z Sorgo to pyszna tradycyjna specjalność, gładka i kremowa, często spożywana w chłodniejszych miesiącach.',
+                'ar': 'كريمة الدرع هي تخصص تقليدي لذيذ، ناعم وكريمي، يُستمتع به غالبًا خلال الأشهر الباردة.'
+            };
+
+            const calories = {
+                'fr': 'Environ 250 calories par portion...',
+                'en': 'About 250 calories per serving...',
+                'es': 'Alrededor de 250 calorías por porción...',
+                'de': 'Etwa 250 Kalorien pro Portion...',
+                'it': 'Circa 250 calorie per porzione...',
+                'pl': 'Około 250 kalorii na porcję...',
+                'ar': 'حوالي 250 سعرة حرارية لكل حصة...'
+            };
+
+            const components = {
+                'fr': 'Composants principaux : Sorgho, lait, sucre, amandes, cannelle, eau de rose...',
+                'en': 'Main ingredients: Sorghum, milk, sugar, almonds, cinnamon, rose water...',
+                'es': 'Ingredientes principales: Sorgo, leche, azúcar, almendras, canela, agua de rosa...',
+                'de': 'Hauptzutaten: Sorghum, Milch, Zucker, Mandeln, Zimt, Rosenwasser...',
+                'it': 'Ingredienti principali: Sorgo, latte, zucchero, mandorle, cannella, acqua di rosa...',
+                'pl': 'Główne składniki: Sorgo, mleko, cukier, migdały, cynamon, woda różana...',
+                'ar': 'المكونات الرئيسية: السورغو، الحليب، السكر، اللوز، القرفة، ماء الورد...'
+            };
+
+            const allergies = {
+                'fr': 'Allergènes : Lait, amandes. Peut contenir des traces de gluten, soja et autres noix.',
+                'en': 'Allergens: Milk, almonds. May contain traces of gluten, soy, and other nuts.',
+                'es': 'Alergénicos: Leche, almendras. Puede contener trazas de gluten, soja y otros frutos secos.',
+                'de': 'Allergene: Milch, Mandeln. Kann Spuren von Gluten, Soja und anderen Nüssen enthalten.',
+                'it': 'Allergeni: Latte, mandorle. Può contenere tracce di glutine, soia e altre noci.',
+                'pl': 'Alergeny: Mleko, migdały. Może zawierać śladowe ilości glutenu, soi i innych orzechów.',
+                'ar': 'المواد المثيرة للحساسية: الحليب، اللوز. قد يحتوي على آثار من الغلوتين، الصويا، والمكسرات الأخرى.'
+            };
+
+            const history = {
+                'fr': 'La Crème de Sorgho trouve ses racines dans les traditions culinaires anciennes de la région du Maghreb, où le sorgho était un aliment de base en raison de sa résistance à la sécheresse.',
+                'en': 'Sorgho Cream has its roots in the ancient culinary traditions of the Maghreb region, where sorghum was a staple food due to its drought resistance.',
+                'es': 'La Crema de Sorgo tiene sus raíces en las antiguas tradiciones culinarias de la región del Magreb, donde el sorgo era un alimento básico debido a su resistencia a la sequía.',
+                'de': 'Sorgho-Creme hat ihre Wurzeln in den alten kulinarischen Traditionen der Maghreb-Region, wo Sorghum aufgrund seiner Trockenheitsbeständigkeit ein Grundnahrungsmittel war.',
+                'it': 'La Crema di Sorgho ha le sue radici nelle antiche tradizioni culinarie della regione del Maghreb, dove il sorgo era un alimento base grazie alla sua resistenza alla siccità.',
+                'pl': 'Krem z Sorgo ma swoje korzenie w starożytnych tradycjach kulinarnych regionu Maghrebu, gdzie sorgo było podstawowym pokarmem ze względu na swoją odporność na suszę.',
+                'ar': 'تعود كريمة الدرع إلى التقاليد الطهي القديمة في منطقة المغرب الكبير، حيث كان السورغو غذاءً أساسيًا نظرًا لمقاومته للجفاف.'
+            };
+
+            const serving = {
+                'fr': 'La Crème de Sorgho se sert généralement chaude, garnie de fruits secs ou d\'amandes grillées pour ajouter du croquant et de la richesse à la texture crémeuse.',
+                'en': 'Sorgho Cream is usually served hot, topped with dried fruits or roasted almonds to add crunch and richness to the creamy texture.',
+                'es': 'La Crema de Sorgo se sirve generalmente caliente, coronada con frutas secas o almendras tostadas para agregar crujido y riqueza a la textura cremosa.',
+                'de': 'Sorgho-Creme wird normalerweise heiß serviert und mit getrockneten Früchten oder gerösteten Mandeln garniert, um der cremigen Textur Knusprigkeit und Reichtum zu verleihen.',
+                'it': 'La Crema di Sorgho viene solitamente servita calda, guarnita con frutta secca o mandorle tostate per aggiungere croccantezza e ricchezza alla texture cremosa.',
+                'pl': 'Krem z Sorgo zwykle podaje się na ciepło, udekorowany suszonymi owocami lub prażonymi migdałami, aby dodać chrupkości i bogactwa kremowej teksturze.',
+                'ar': 'تُقدّم كريمة الدرع عادةً ساخنة، مزينة بالفواكه المجففة أو اللوز المحمص لإضافة القرمشة والغنى إلى القوام الكريمي.'
+            };
+
+            // Switch content based on the selected language
+            document.querySelector('.container h1').textContent = texts[language];
+            document.querySelector('.overview h2').textContent = language === 'en' ? 'Overview' : (language === 'es' ? 'Visión general' : (language === 'de' ? 'Übersicht' : (language === 'it' ? 'Panoramica' : (language === 'pl' ? 'Przegląd' : (language === 'ar' ? 'نظرة عامة' : 'Présentation')))));
+            document.querySelector('.calories h2').textContent = language === 'en' ? 'Calories' : (language === 'es' ? 'Calorías' : (language === 'de' ? 'Kalorien' : (language === 'it' ? 'Calorie' : (language === 'pl' ? 'Kalorie' : (language === 'ar' ? 'السعرات الحرارية' : 'Calories')))));
+            document.querySelector('.components h2').textContent = language === 'en' ? 'Ingredients' : (language === 'es' ? 'Ingredientes' : (language === 'de' ? 'Zutaten' : (language === 'it' ? 'Ingredienti' : (language === 'pl' ? 'Składniki' : (language === 'ar' ? 'المكونات' : 'Ingrédients')))));
+            document.querySelector('.allergies h2').textContent = language === 'en' ? 'Allergens' : (language === 'es' ? 'Alergénicos' : (language === 'de' ? 'Allergene' : (language === 'it' ? 'Allergeni' : (language === 'pl' ? 'Alergeny' : (language === 'ar' ? 'المواد المثيرة للحساسية' : 'Allergènes')))));
+
+            document.querySelector('.overview p').textContent = overviews[language];
+            document.querySelector('.calories p').textContent = calories[language];
+            document.querySelector('.components p').textContent = components[language];
+            document.querySelector('.allergies p').textContent = allergies[language];
         }
     </script>
 </head>
@@ -207,61 +201,57 @@
 
     <div class="container">
         <header>
-
-            <h1>Couscous Royal</h1>
+            <h1>Crème de Sorgho</h1>
             <div class="flags">
-                <img src="https://flagcdn.com/fr.svg" alt="Français" title="Français" onclick="switchLanguage('fr')">
-                <img src="https://flagcdn.com/gb.svg" alt="English" title="English" onclick="switchLanguage('en')">
-                <img src="https://flagcdn.com/es.svg" alt="Español" title="Español" onclick="switchLanguage('es')">
-                <img src="https://flagcdn.com/de.svg" alt="Deutsch" title="Deutsch" onclick="switchLanguage('de')">
-                <img src="https://flagcdn.com/it.svg" alt="Italiano" title="Italiano" onclick="switchLanguage('it')">
-                <img src="https://flagcdn.com/pl.svg" alt="Polski" title="Polski" onclick="switchLanguage('pl')">
-                <img src="https://flagcdn.com/tn.svg" alt="العربية" title="العربية" onclick="switchLanguage('ar')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" alt="Français" onclick="switchLanguage('fr')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Tunisia_%281959%E2%80%931999%29.svg/640px-Flag_of_Tunisia_%281959%E2%80%931999%29.svg.png" alt="عربى" onclick="switchLanguage('ar')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" alt="English" onclick="switchLanguage('en')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg" alt="Español" onclick="switchLanguage('es')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/640px-Flag_of_Germany.svg.png" alt="Deutsch" onclick="switchLanguage('de')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/640px-Flag_of_Italy.svg.png" alt="Italiano" onclick="switchLanguage('it')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Flag_of_Poland.svg" alt="Polski" onclick="switchLanguage('pl')">
             </div>
         </header>
 
-
-        <img class="dish-image" src="https://fac.img.pmdstatic.net/fit/~1~fac~2018~07~30~94958cd5-6b38-46a6-a289-bb42cd7e2bd1.jpeg/850x478/quality/90/crop-from/center/couscous-royal-aux-3-viandes.jpeg" alt="Couscous Royal">
+        <img class="dish-image" src="https://vanoiserie.tn/wp-content/uploads/2024/06/creme-de-sorgho.jpg" alt="Crème de Sorgho">
+        
         <div class="overview">
             <h2>Présentation</h2>
-            <p>Le Couscous Royal est un plat emblématique d'Afrique du Nord, composé de semoule de blé accompagnée de viandes variées, de légumes et d'épices.</p>
+            <p>La Crème de Sorgho est une délicieuse spécialité traditionnelle, douce et crémeuse, souvent dégustée lors des mois plus frais...</p>
         </div>
 
         <div class="calories">
             <h2>Calories</h2>
-            <p>Environ 400 calories par portion.</p>
+            <p>Environ 250 calories par portion...</p>
         </div>
 
         <div class="components">
-            <h2>Composants principaux</h2>
-            <p>Semoule de blé, agneau, poulet, merguez, courgettes, carottes, pois chiches, épices (cumin, curcuma, paprika).</p>
+            <h2>Ingrédients</h2>
+            <p>Composants principaux : Sorgho, lait, sucre, amandes, cannelle, eau de rose...</p>
         </div>
 
         <div class="allergies">
             <h2>Allergènes</h2>
-            <p>Contient du gluten et peut contenir des traces de fruits à coque.</p>
+            <p>Allergènes : Lait, amandes. Peut contenir des traces de gluten, soja et autres noix.</p>
         </div>
 
         <div class="history">
             <h2>Histoire</h2>
-            <p>Originaire d'Afrique du Nord, le couscous est un plat ancien qui symbolise le partage et la convivialité.</p>
+            <p>La Crème de Sorgho trouve ses racines dans les traditions culinaires anciennes de la région du Maghreb...</p>
         </div>
 
         <div class="serving">
-            <h2>Présentation</h2>
-            <p>Le Couscous Royal se sert avec une sauce épicée à base de tomate et un bol de bouillon chaud.</p>
+            <h2>Service</h2>
+            <p>La Crème de Sorgho se sert généralement chaude, garnie de fruits secs ou d'amandes grillées pour ajouter du croquant et de la richesse à la texture crémeuse.</p>
         </div>
 
         <div class="back-to-top">
             <a href="#">Retour en haut</a>
-        </div>
-
+    </div>
 <p style="text-align: center; font-size: 12px;">&copy; 2025 Seabel Rym Beach Hotel. Tous droits réservés.</p>
     </div>
         <img class="logo" src="https://www.seabelhotels.com/wp-content/uploads/2021/12/Logo_slide_rym_beach.png" alt="Seabel Rym Beach Hotel Logo">
         </div>
-
-
 
 </body>
 </html>
