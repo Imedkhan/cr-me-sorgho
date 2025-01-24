@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couscous Royal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #bdc9cc;
+            color: Black;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+        header .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+        }
+        header .flags {
+            margin-top: 10px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .flags img {
+            width: 30px;
+            height: auto;
+            margin-left: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .flags img:hover {
+            transform: scale(1.5);
+        }
+        .dish-image {
+            display: block;
+            width: 60%;
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+        .dish-image:hover {
+            transform: scale(1.01); rotate(5deg); /* Agrandissement et légère rotation */
+            opacity: 0.5; /* Réduction légère de l'opacité */
+        
+        }
+        .logo {
+            display: block;
+            width: 10%;
+            max-width: 100px;
+            margin: 0 auto;
+            border-radius: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+
+        }
+        .overview, .calories, .components, .allergies, .history, .serving {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .overview:hover {
+            transform: scale(1.01);
+        }
+        .overview {
+            background-color: #f8f8f8;
+        }
+        .calories {
+            background-color: #e8f7fa;
+        }
+        .components {
+            background-color: #f1f8e9;
+        }
+        .allergies {
+            background-color: #ffebee;
+        }
+        .history {
+            background-color: #fffae6;
+        }
+        .serving {
+            background-color: #e8f7e8;
+        }
+        .overview h2, .calories h2, .components h2, .allergies h2, .history h2, .serving h2 {
+            margin-top: 0;
+            color: #e94e77;
+        }
+        .back-to-top {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-to-top a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-to-top a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function switchLanguage(language) {
+            const translations = {
+                'fr': {
+                    title: 'Couscous Royal',
+                    overview: 'Présentation',
+                    calories: 'Calories',
+                    components: 'Composants principaux',
+                    allergies: 'Allergènes',
+                    history: 'Histoire',
+                    serving: 'Présentation'
+                },
+                'en': {
+                    title: 'Royal Couscous',
+                    overview: 'Overview',
+                    calories: 'Calories',
+                    components: 'Main Ingredients',
+                    allergies: 'Allergens',
+                    history: 'History',
+                    serving: 'Serving'
+                },
+                'es': {
+                    title: 'Cuscús Real',
+                    overview: 'Descripción',
+                    calories: 'Calorías',
+                    components: 'Ingredientes principales',
+                    allergies: 'Alergias',
+                    history: 'Historia',
+                    serving: 'Servicio'
+                },
+                'de': {
+                    title: 'Königlicher Couscous',
+                    overview: 'Überblick',
+                    calories: 'Kalorien',
+                    components: 'Hauptzutaten',
+                    allergies: 'Allergene',
+                    history: 'Geschichte',
+                    serving: 'Servieren'
+                },
+                'it': {
+                    title: 'Couscous Reale',
+                    overview: 'Panoramica',
+                    calories: 'Calorie',
+                    components: 'Ingredienti principali',
+                    allergies: 'Allergeni',
+                    history: 'Storia',
+                    serving: 'Servizio'
+                },
+                'pl': {
+                    title: 'Królewski Kus-kus',
+                    overview: 'Przegląd',
+                    calories: 'Kalorie',
+                    components: 'Główne składniki',
+                    allergies: 'Alergeny',
+                    history: 'Historia',
+                    serving: 'Serwowanie'
+                },
+                'ar': {
+                    title: 'كسكسي ملكي',
+                    overview: 'نظرة عامة',
+                    calories: 'السعرات الحرارية',
+                    components: 'المكونات الرئيسية',
+                    allergies: 'المواد المثيرة للحساسية',
+                    history: 'التاريخ',
+                    serving: 'طريقة التقديم'
+                }
+            };
+
+            const content = translations[language];
+            document.querySelector('header h1').textContent = content.title;
+            document.querySelector('.overview h2').textContent = content.overview;
+            document.querySelector('.calories h2').textContent = content.calories;
+            document.querySelector('.components h2').textContent = content.components;
+            document.querySelector('.allergies h2').textContent = content.allergies;
+            document.querySelector('.history h2').textContent = content.history;
+            document.querySelector('.serving h2').textContent = content.serving;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+
+            <h1>Couscous Royal</h1>
+            <div class="flags">
+                <img src="https://flagcdn.com/fr.svg" alt="Français" title="Français" onclick="switchLanguage('fr')">
+                <img src="https://flagcdn.com/gb.svg" alt="English" title="English" onclick="switchLanguage('en')">
+                <img src="https://flagcdn.com/es.svg" alt="Español" title="Español" onclick="switchLanguage('es')">
+                <img src="https://flagcdn.com/de.svg" alt="Deutsch" title="Deutsch" onclick="switchLanguage('de')">
+                <img src="https://flagcdn.com/it.svg" alt="Italiano" title="Italiano" onclick="switchLanguage('it')">
+                <img src="https://flagcdn.com/pl.svg" alt="Polski" title="Polski" onclick="switchLanguage('pl')">
+                <img src="https://flagcdn.com/tn.svg" alt="العربية" title="العربية" onclick="switchLanguage('ar')">
+            </div>
+        </header>
+
+
+        <img class="dish-image" src="https://fac.img.pmdstatic.net/fit/~1~fac~2018~07~30~94958cd5-6b38-46a6-a289-bb42cd7e2bd1.jpeg/850x478/quality/90/crop-from/center/couscous-royal-aux-3-viandes.jpeg" alt="Couscous Royal">
+        <div class="overview">
+            <h2>Présentation</h2>
+            <p>Le Couscous Royal est un plat emblématique d'Afrique du Nord, composé de semoule de blé accompagnée de viandes variées, de légumes et d'épices.</p>
+        </div>
+
+        <div class="calories">
+            <h2>Calories</h2>
+            <p>Environ 400 calories par portion.</p>
+        </div>
+
+        <div class="components">
+            <h2>Composants principaux</h2>
+            <p>Semoule de blé, agneau, poulet, merguez, courgettes, carottes, pois chiches, épices (cumin, curcuma, paprika).</p>
+        </div>
+
+        <div class="allergies">
+            <h2>Allergènes</h2>
+            <p>Contient du gluten et peut contenir des traces de fruits à coque.</p>
+        </div>
+
+        <div class="history">
+            <h2>Histoire</h2>
+            <p>Originaire d'Afrique du Nord, le couscous est un plat ancien qui symbolise le partage et la convivialité.</p>
+        </div>
+
+        <div class="serving">
+            <h2>Présentation</h2>
+            <p>Le Couscous Royal se sert avec une sauce épicée à base de tomate et un bol de bouillon chaud.</p>
+        </div>
+
+        <div class="back-to-top">
+            <a href="#">Retour en haut</a>
+        </div>
+
+<p style="text-align: center; font-size: 12px;">&copy; 2025 Seabel Rym Beach Hotel. Tous droits réservés.</p>
+    </div>
+        <img class="logo" src="https://www.seabelhotels.com/wp-content/uploads/2021/12/Logo_slide_rym_beach.png" alt="Seabel Rym Beach Hotel Logo">
+        </div>
+
+
+
+</body>
+</html>
